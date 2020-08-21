@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Bloger.Models.PostViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog Home</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/css/site.css" rel="stylesheet" />
+    <!--Icon comment-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+</head>
+
+<h1>Bloger</h1>
+<hr />
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Post</a>
+</p>
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <h1 class="my-4">
+                Bloger Page
+            </h1>
+            <!-- Blog Post -->
+            @foreach (var item in Model)
+            {
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                    <img class="card-img-top" src="~/images/@Html.DisplayFor(modelItem => item.Photo)" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h2>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        @*<a href="Coment/Create?ID=@item.ID" class="btn btn-primary">Add Comment <i class='fas fa-comment'></i></a>*@
+                        @* <a href="Coment/Index?ID=@item.ID" class="btn btn-primary">View Comment <i class='fas fa-comment'></i></a>*@
+                        <partial name="_AddComments" model="new ComentsViewModel { PostsID = item.ID }" />
+                        <partial name="_ViewComment" model="new ComentsViewModel ()" />
+                    </div>
+                </div>
+            }
+            <!-- Pagination -->
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item @ViewBag.HasPreviousDisabled">
+                    <a class="page-link" asp-route-currentPage="@(ViewBag.CurrentPageUser - 1)">&larr; Older</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-route-CurrentPage="@(ViewBag.CurrentPageUser + 1)">Newer &rarr;</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+            <!-- Search Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Search</h5>
+                <div class="card-body">
+                    <form method="get">
+                        <div class="input-group">
+                            <input type="text" name="SearchName" value="@ViewBag.SearchN" class="form-control" placeholder="Search for...">
+                            <span class="input-group-append">
+                                <button class="btn btn-secondary" type="submit">Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Categories Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Categories</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <select class="browser-default custom-select" name="category" id="selectList" asp-items="@ViewBag.categories" onchange="newFunc()">
+                                <option selected>Select a Category </option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    function newFunc() {
+        var x = $('#selectList').val();
+        $.ajax({
+            type: "GET",
+            URL: "/?category=" + x,
+            contentType: "Application/json: charset=utf-8",
+            dataType: "json",
+            sucess: function (r) {
+                alert()
+            }
+
+
+        })
+    }
+</script>

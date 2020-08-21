@@ -1,0 +1,65 @@
+﻿@model Bloger.Models.PostViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<hr />
+<link href="~/css/site.css" rel="stylesheet" />
+<h2>Create</h2>
+
+<h4>Coments</h4>
+<hr />
+@*<p><a href="#ex1" rel="modal:open" class="btn btn-primary">Create</a></p>
+    <div id="ex1" class="modal" style="position: relative; margin-top: 5%;">*@
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" accept="Image/*" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select multiple="multiple" asp-for="Categories" asp-items="Model.Category">
+                    <option></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+
+    $(document).ready(function () {
+        var items = [];
+        $('.checkbox').val(function () { items.push($(this).val()); });
+        var result = items.join(', ');
+        $(".btn btn-default").click(function () {
+
+            alert(result);
+        });
+
+
+    });
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
