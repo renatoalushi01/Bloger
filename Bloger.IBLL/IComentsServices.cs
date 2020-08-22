@@ -7,7 +7,7 @@ namespace Bloger.IBLL
     public interface IComentsServices
     {
         void AddComents(ComentsViewModel coments);
-        List<ComentsViewModel> GetComents();
+        List<ComentsViewModel> GetComents(int id);
         void Delete(int? id);
 
     }

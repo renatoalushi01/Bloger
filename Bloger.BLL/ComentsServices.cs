@@ -29,17 +29,18 @@ namespace Bloger.BLL
             _internalUnitOfWork.Save();
         }
 
-        public List<ComentsViewModel> GetComents()
+        public List<ComentsViewModel> GetComents(int id)
         {
-            var coment = _internalUnitOfWork.ComentsRespository.Get();
+            var coment = _internalUnitOfWork.ComentsRespository.Get(s=>s.Posts.ID == id);
+            
             var user = _internalUnitOfWork.UserRepository.Get();
             var user_coment = from com in coment
                               join u in user on com.AspNetUsersId equals u.Id
-                              select new { desc = com.Description,username = u.Email };
+                              select new { desc = com.Description,username = u.Email};
             List<ComentsViewModel> coments = new List<ComentsViewModel>();
-            foreach(var c in user_coment)
+            foreach(var c in user_coment.ToList())
             {
-                coments.Add(new ComentsViewModel { Description = c.desc, UserName = c.username });
+                coments.Add(new ComentsViewModel { Description = c.desc, UserName = c.username, PostsID = id });
             }
             return coments;
         }

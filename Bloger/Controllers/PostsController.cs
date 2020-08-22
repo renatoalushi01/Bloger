@@ -14,21 +14,26 @@ using Microsoft.AspNetCore.Hosting;
 using Bloger.DAL.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Diagnostics;
 
 namespace Bloger.Controllers
 {
     public class PostsController : Controller
     {
         private readonly IPostService _postsService;
+        private readonly IComentsServices _comentService;
         private IHostingEnvironment _hosting;
+        private IHttpContextAccessor _httpContextAccessor;
         
        
 
-        public PostsController(IPostService postsService, IHostingEnvironment hosting)
+        public PostsController(IPostService postsService, IHostingEnvironment hosting, IComentsServices comentsServices, IHttpContextAccessor httpContextAccessor)
         {
              _postsService = postsService;
              _hosting = hosting;
+            _comentService = comentsServices;
              SizePage = 2;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public int maxPage { get; set; }
@@ -69,6 +74,63 @@ namespace Bloger.Controllers
             return View(posts.ToList());
         }
 
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            var coments = _comentService.GetComents(id);
+
+            return PartialView(coments);
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult AddComment(int id)
+        {
+            try
+            {
+                var comentViewModel = new ComentsViewModel()
+                {
+                    PostsID = id,
+                    AspNetUsersId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value,
+                    UserName = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Name).Value
+                };
+                return PartialView(comentViewModel);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                throw;
+                //
+            }
+  
+
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddComment(ComentsViewModel comentsM)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                Debug.WriteLine(comentsM.AspNetUsersId);
+
+
+                _comentService.AddComents(comentsM);
+
+                return RedirectToAction("Index", "Posts");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                return View();
+            }
+        }
+
         public int MaxPageNumber(int total)
         {
             return (int)Math.Ceiling((decimal)total / SizePage);
@@ -81,13 +143,6 @@ namespace Bloger.Controllers
         public string HasNextDisabled()
         {
             return CurrentPageUser >= maxPage ? "disabled" : "";
-        }
-
-        // GET: Posts/Details/5
-        public ActionResult Details(int id)
-        {
-            
-            return View();
         }
 
         // GET: Posts/Create

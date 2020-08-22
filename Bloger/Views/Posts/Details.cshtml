@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Bloger.Models.ComentsViewModel>
+
+@{
+    ViewData["Title"] = "Comments";
+}
+
+<div class="row">
+    <div class="col-md-12" style="margin-top:17%">
+        @if (Model.Any())
+        {
+            <a onclick="AddComments('@Url.Action("AddComment", "Posts" , new {id=Model?.FirstOrDefault().PostsID})')" class="btn btn-primary">Add new comment <i class='fas fa-comment'></i></a>
+            <div id="AddComments">
+
+            </div>
+            <hr />
+
+            <table class="table col-md-12">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <label>No Comments</label>
+        }
+        <a href="#" rel="modal:close" onclick="EmptyData()">Close</a>
+    </div>
+</div>
+<script>
+
+    function AddComments(url) {
+        $('#AddComments').load(url);
+    }
+
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

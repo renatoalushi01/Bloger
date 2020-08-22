@@ -18,7 +18,7 @@ namespace Bloger.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<BlogerContext>(options =>
                     options.UseSqlServer(
-                        context.Configuration.GetConnectionString("BlogerContextConnection")));
+                        context.Configuration.GetConnectionString("BlogerDbContextConnection")));
 
                 services.AddDefaultIdentity<BlogerUser>()
                     .AddEntityFrameworkStores<BlogerContext>();

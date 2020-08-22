@@ -3,30 +3,21 @@
 @{
     ViewData["Title"] = "Index";
 }
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Blog Home</title>
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="~/css/site.css" rel="stylesheet" />
-    <!--Icon comment-->
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-</head>
-
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <h1>Bloger</h1>
 <hr />
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New Post</a>
 </p>
+<div id="ex1" class="modal">
+    <div class="row" id="modelContent">
+        ...
+    </div>
+</div>
 <!-- Page Content -->
 <div class="container">
     <div class="row">
@@ -44,10 +35,8 @@
                     <div class="card-body">
                         <h2 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h2>
                         <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
-                        @*<a href="Coment/Create?ID=@item.ID" class="btn btn-primary">Add Comment <i class='fas fa-comment'></i></a>*@
-                        @* <a href="Coment/Index?ID=@item.ID" class="btn btn-primary">View Comment <i class='fas fa-comment'></i></a>*@
-                        <partial name="_AddComments" model="new ComentsViewModel { PostsID = item.ID }" />
-                        <partial name="_ViewComment" model="new ComentsViewModel ()" />
+
+                        <a href="#ex1" onclick="CallComments('@Url.Action("Details", "Posts" , new {id=item.ID })')" class="btn btn-primary" rel="modal:open">View Comment <i class='fas fa-comment'></i></a>
                     </div>
                 </div>
             }
@@ -95,9 +84,15 @@
     </div>
     <!-- /.row -->
 </div>
+
+
+
+
 <!-- /.container -->
+
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
+
     function newFunc() {
         var x = $('#selectList').val();
         $.ajax({
@@ -112,4 +107,14 @@
 
         })
     }
+
+    function CallComments(url) {
+        EmptyData();
+        $('#modelContent').load(url);
+    }
+
+    function EmptyData() {
+        $('#modelContent').empty();
+    }
+
 </script>
