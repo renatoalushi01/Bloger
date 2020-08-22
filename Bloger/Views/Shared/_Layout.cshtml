@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Bloger.Areas.Identity.Data
+@inject SignInManager<BlogerUser> SignInManager
+@inject UserManager<BlogerUser> UserManager
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -28,13 +32,31 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        
-            <div class="navbar-header">
-                
-                <a asp-area="" asp-controller="" asp-action="Index" class="navbar-brand" id="navbar">Bloger</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
+
+        <div class="navbar-header">
+
+            <a asp-area="" asp-controller="" asp-action="Index" class="navbar-brand" id="navbar">Bloger</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="" asp-action="Index">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <p class="username">@UserManager.GetUserName(User)</p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Identity/Account/" asp-action="Logout">Log out</a>
+                    </li>
+
+                }
+                else
+                {
                     <li class="nav-item active">
                         <a class="nav-link" asp-area="" asp-controller="" asp-action="Index">
                             Home
@@ -50,9 +72,11 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Identity/Account/" asp-action="Logout">Log out</a>
                     </li>
-                </ul>
-            </div>
-        
+                }
+
+            </ul>
+        </div>
+
     </nav>
 
     <partial name="_CookieConsentPartial" />

@@ -72,7 +72,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-6">
-                            <select class="browser-default custom-select" name="category" id="selectList" asp-items="@ViewBag.categories" onchange="newFunc()">
+                            <select class="browser-default custom-select" name="category" id="selectList" asp-items="@ViewBag.categories" >
                                 <option selected>Select a Category </option>
                             </select>
                         </div>
@@ -84,29 +84,20 @@
     </div>
     <!-- /.row -->
 </div>
-
-
-
-
 <!-- /.container -->
-
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
 
-    function newFunc() {
-        var x = $('#selectList').val();
-        $.ajax({
-            type: "GET",
-            URL: "/?category=" + x,
-            contentType: "Application/json: charset=utf-8",
-            dataType: "json",
-            sucess: function (r) {
-                alert()
-            }
-
-
-        })
-    }
+   
+        
+        var value = "";
+        $(document).ready(function () {
+            $("#selectList").change(function () {
+                value = $(this).val();
+                window.location.href = "" + '?category=' + value;
+            });
+        });
+    
 
     function CallComments(url) {
         EmptyData();

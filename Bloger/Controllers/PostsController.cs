@@ -47,11 +47,12 @@ namespace Bloger.Controllers
             {
                 posts = posts.Where(t => t.Title.Contains(SearchName)).ToList(); 
             }
-            //var id = Convert.ToInt32(category);
-            //if (id > -1)
-            //{
-            //    posts = posts.Where(t => t.ID == id);
-            //}
+            if (category != null)
+            {
+                var id = Convert.ToInt32(category);
+            
+                posts = posts.Where(t => t.ID == id).ToList();
+            }
 
             List<SelectListItem> categories = new List<SelectListItem>();
             foreach (var c in posts)
@@ -78,7 +79,7 @@ namespace Bloger.Controllers
         public ActionResult Details(int id)
         {
             var coments = _comentService.GetComents(id);
-
+            ViewBag.PostID = id;
             return PartialView(coments);
         }
 

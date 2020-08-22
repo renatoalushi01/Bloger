@@ -3,40 +3,34 @@
 @{
     ViewData["Title"] = "Comments";
 }
-
+<link href="~/css/site.css" rel="stylesheet" />
 <div class="row">
-    <div class="col-md-12" style="margin-top:17%">
+    <div class="col-md-12" id="jqueryModel">
+
+        <a onclick="AddComments('@Url.Action("AddComment", "Posts" , new {id=ViewBag.PostID })')" class="btn btn-primary">Add new comment <i class='fas fa-comment'></i></a>
+        <div id="AddComments">
+
+        </div>
         @if (Model.Any())
-        {
-            <a onclick="AddComments('@Url.Action("AddComment", "Posts" , new {id=Model?.FirstOrDefault().PostsID})')" class="btn btn-primary">Add new comment <i class='fas fa-comment'></i></a>
-            <div id="AddComments">
-
-            </div>
-            <hr />
-
+         {
             <table class="table col-md-12">
                 <thead>
                     <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.UserName)
-                        </th>
+                     
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
+                   @foreach (var item in Model)
+                       {
+                         <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserName) :
+                            </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Description)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UserName)
-                            </td>
                         </tr>
-                    }
+                        }
                 </tbody>
             </table>
 

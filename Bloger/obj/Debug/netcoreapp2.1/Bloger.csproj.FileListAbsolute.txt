@@ -11,10 +11,6 @@ C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Bloger.Assembly
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Bloger.TagHelpers.input.cache
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Bloger.TagHelpers.output.cache
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Bloger.RazorCoreGenerate.cache
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -50,10 +46,7 @@ C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Cat
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Category\Index.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Posts\Index.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Posts\Create.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Coment\Index.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Coment\Create.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Coment\Delete.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Comment\_ViewComment.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Comment\_AddComments.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AddComments.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ViewComment.g.cshtml.cs
+C:\Users\user\Source\Repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Posts\AddComment.g.cshtml.cs
+C:\Users\user\Source\Repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Posts\Details.g.cshtml.cs

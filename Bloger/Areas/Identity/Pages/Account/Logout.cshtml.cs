@@ -28,7 +28,7 @@ namespace Bloger.Areas.Identity.Pages.Account
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
             status = "User logged out";
-
+            LocalRedirect("~/");
 
         }
         
