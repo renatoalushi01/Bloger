@@ -42,8 +42,6 @@ C:\Users\user\source\repos\Bloger\Bloger\bin\Debug\netcoreapp2.1\Bloger.BLL.pdb
 C:\Users\user\source\repos\Bloger\Bloger\bin\Debug\netcoreapp2.1\Bloger.DAL.pdb
 C:\Users\user\source\repos\Bloger\Bloger\bin\Debug\netcoreapp2.1\Bloger.IBLL.pdb
 C:\Users\user\source\repos\Bloger\Bloger\bin\Debug\netcoreapp2.1\Bloger.Models.pdb
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Category\Create.g.cshtml.cs
-C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Category\Index.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Posts\Index.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Posts\Create.g.cshtml.cs
 C:\Users\user\source\repos\Bloger\Bloger\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AddComments.g.cshtml.cs

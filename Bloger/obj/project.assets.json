@@ -12716,11 +12716,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger\\Bloger.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\Bloger\\Bloger\\Bloger.csproj",
       "projectName": "Bloger",
-      "projectPath": "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger\\Bloger.csproj",
+      "projectPath": "C:\\Users\\user\\source\\repos\\Bloger\\Bloger\\Bloger.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger\\obj\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\Bloger\\Bloger\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12739,17 +12739,17 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.BLL\\Bloger.BLL.csproj": {
-              "projectPath": "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.BLL\\Bloger.BLL.csproj"
+            "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.BLL\\Bloger.BLL.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.BLL\\Bloger.BLL.csproj"
             },
-            "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.DAL\\Bloger.DAL.csproj": {
-              "projectPath": "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.DAL\\Bloger.DAL.csproj"
+            "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.DAL\\Bloger.DAL.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.DAL\\Bloger.DAL.csproj"
             },
-            "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.IBLL\\Bloger.IBLL.csproj": {
-              "projectPath": "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.IBLL\\Bloger.IBLL.csproj"
+            "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.IBLL\\Bloger.IBLL.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.IBLL\\Bloger.IBLL.csproj"
             },
-            "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.Models\\Bloger.Models.csproj": {
-              "projectPath": "C:\\Users\\user\\Source\\Repos\\Bloger\\Bloger.Models\\Bloger.Models.csproj"
+            "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.Models\\Bloger.Models.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Bloger\\Bloger.Models\\Bloger.Models.csproj"
             }
           }
         }
